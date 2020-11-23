@@ -1,0 +1,29 @@
+* Basics
+
+  [U] Update
+  [s] search
+
+* Bookmarks
+
+  [u] Unread
+  [e] Emacs
+  [b] Blogs
+  [m] Monitoring
+  [v] Video
+
+* Configuration
+  :PROPERTIES:
+  :VISIBILITY: hideall
+  :END:
+
+  Call [[elisp:elfeed-dashboard-mode][elfeed-dashboard-mode]] to activate and deactivate dashboard
+
+  #+STARTUP: showall showstars indent
+  #+KEYMAP: u | elfeed-dashboard-query "+unread"
+  #+KEYMAP: e | elfeed-dashboard-query "+emacs"
+  #+KEYMAP: b | elfeed-dashboard-query "+blogs"
+  #+KEYMAP: m | elfeed-dashboard-query "+monitoring"
+  #+KEYMAP: v | elfeed-dashboard-query "+video"
+  #+KEYMAP: s | elfeed
+  #+KEYMAP: U | elfeed-dashboard-update
+  #+KEYMAP: q | kill-current-buffer
