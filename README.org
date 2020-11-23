@@ -1,0 +1,23 @@
+*  elfeed-dashboard
+  A frontend for elfeed, similar to mu4e landing page. The UI can be customized with org mode.
+
+  #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
+
+* Installation
+  - Clone the repo and load elfeed-dashboard.el
+  - open elfeed-dashboard.org
+  - M-x elfeed-dashboard-mode
+
+  Now you should have a working dashboard. Call M-x elfeed-dashboard-mode again
+  and edit the dashboard to your heart's content.
+* License
+
+  [[file:LICENSE][GNU GPLv3.0]]
+
+* Contribute
+
+  Yes please! open github [[https://github.com/Manoj321/kapacitor-el/issues][issues]]
+* Credits
+
+  Thanks to [[[https://github.com/rougier/mu4e-dashboard][mu4e-dashboard]] for inspiring me!
+
