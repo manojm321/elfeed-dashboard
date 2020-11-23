@@ -1,4 +1,4 @@
-;;; elfeed-dashboard.el --- A frontend of elfeed     -*- lexical-binding: t; -*-
+;;; elfeed-dashboard.el --- A frontend for elfeed     -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Manoj Kumar Manikchand
 
@@ -20,7 +20,8 @@
 ;; For a full copy of the GNU General Public License
 ;; see <http://www.gnu.org/licenses/>.
 
-;;; Commentary:
+;;; Commentary: For a quick demo, open the elfeed-dashboard.org file provided
+;;; with this repo and enable elfeed-dashboard-mode to activate it.
 
 ;;; Code:
 (require 'elfeed-search)
