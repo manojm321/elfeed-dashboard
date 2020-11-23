@@ -20,7 +20,8 @@
 ;; For a full copy of the GNU General Public License
 ;; see <http://www.gnu.org/licenses/>.
 
-;;; Commentary: For a quick demo, open the elfeed-dashboard.org file provided
+;;; Commentary:
+;;; For a quick demo, open the elfeed-dashboard.org file provided
 ;;; with this repo and enable elfeed-dashboard-mode to activate it.
 
 ;;; Code:
@@ -30,15 +31,31 @@
 
 (defvar elfeed-dashboard--elfeed-update-timer nil)
 
+(defvar elfeed-dashboard-mode-map (make-sparse-keymap)
+  "Keymap for `elfeed-dashboard-mode'.")
+
+(defvar elfeed-dashboard-file "elfeed-dashboard.org")
+
 ;;;###autoload
-(define-minor-mode elfeed-dashboard-mode
-  "Minor mode to simulate buffer local keybindings."
-  :keymap (make-sparse-keymap)
-  :init-value nil
-  (if (not (bound-and-true-p elfeed-dashboard-mode))
-      (setq buffer-read-only nil)
-    (setq buffer-read-only t)
-    (elfeed-dashboard-parse-keymap)))
+(define-derived-mode elfeed-dashboard-mode org-mode "Dashboard"
+  "Base mode for Dashboard modes.
+
+\\{elfeed-dashboard-mode-map}"
+  :group 'elfeed-dashboard
+  (setq buffer-read-only t)
+  (elfeed-dashboard-parse-keymap))
+
+(defun elfeed-dashboard ()
+  "Main function."
+  (interactive)
+  (with-current-buffer (find-file elfeed-dashboard-file)
+    (elfeed-dashboard-mode)))
+
+(defun elfeed-dashboard-edit ()
+  "Edit dashboard."
+  (interactive)
+  (setq buffer-read-only nil)
+  (org-mode))
 
 (defun elfeed-dashboard-query (query)
   "Set the search filter to QUERY and call elfeed."

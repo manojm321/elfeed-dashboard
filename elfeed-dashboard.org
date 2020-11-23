@@ -1,7 +1,8 @@
 * Basics
 
   [U] Update
-  [s] search
+  [s] Search
+  [E] Edit
 
 * Bookmarks
 
@@ -9,9 +10,10 @@
   [e] Emacs
   [b] Blogs
   [m] Monitoring
+  [n] News
   [v] Video
 
-* Configuration
+ Configuration
   :PROPERTIES:
   :VISIBILITY: hideall
   :END:
@@ -24,6 +26,8 @@
   #+KEYMAP: b | elfeed-dashboard-query "+unread +blogs"
   #+KEYMAP: m | elfeed-dashboard-query "+unread +monitoring"
   #+KEYMAP: v | elfeed-dashboard-query "+unread +video"
+  #+KEYMAP: n | elfeed-dashboard-query "+unread +news -video"
   #+KEYMAP: s | elfeed
   #+KEYMAP: U | elfeed-dashboard-update
+  #+KEYMAP: E | elfeed-dashboard-edit
   #+KEYMAP: q | kill-current-buffer
