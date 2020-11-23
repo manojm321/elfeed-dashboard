@@ -20,10 +20,10 @@
 
   #+STARTUP: showall showstars indent
   #+KEYMAP: u | elfeed-dashboard-query "+unread"
-  #+KEYMAP: e | elfeed-dashboard-query "+emacs"
-  #+KEYMAP: b | elfeed-dashboard-query "+blogs"
-  #+KEYMAP: m | elfeed-dashboard-query "+monitoring"
-  #+KEYMAP: v | elfeed-dashboard-query "+video"
+  #+KEYMAP: e | elfeed-dashboard-query "+unread +emacs"
+  #+KEYMAP: b | elfeed-dashboard-query "+unread +blogs"
+  #+KEYMAP: m | elfeed-dashboard-query "+unread +monitoring"
+  #+KEYMAP: v | elfeed-dashboard-query "+unread +video"
   #+KEYMAP: s | elfeed
   #+KEYMAP: U | elfeed-dashboard-update
   #+KEYMAP: q | kill-current-buffer

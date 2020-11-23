@@ -19,5 +19,5 @@
   Yes please! open github [[https://github.com/Manoj321/kapacitor-el/issues][issues]]
 * Credits
 
-  Thanks to [[[https://github.com/rougier/mu4e-dashboard][mu4e-dashboard]] for inspiring me!
+  Much thanks to [[https://github.com/rougier/mu4e-dashboard][mu4e-dashboard]] for inspiring me!
 
