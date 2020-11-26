@@ -21,7 +21,7 @@
 ;; GNU General Public License for more details.
 
 ;; For a full copy of the GNU General Public License
-;; see <http://www.gnu.org/licenses/>.
+;; see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 ;;; For a quick demo, open the elfeed-dashboard.org file provided
@@ -38,6 +38,8 @@
   "Keymap for `elfeed-dashboard-mode'.")
 
 (defvar elfeed-dashboard-file "elfeed-dashboard.org")
+
+(declare-function elfeed-org "elfeed-org")
 
 ;;;###autoload
 (define-derived-mode elfeed-dashboard-mode org-mode "Dashboard"
@@ -69,18 +71,18 @@
 
 (defun elfeed-dashboard-update ()
   "Fetch new feeds, Optionally try reading elfeed-org configuration."
-  (if (symbolp 'elfeed-org)
-    (elfeed-org))
+  (if (fboundp 'elfeed-org)
+      (elfeed-org))
   (unless elfeed-dashboard--elfeed-update-timer
     (elfeed-update)
     (setq elfeed-dashboard--elfeed-update-timer
-          (run-with-timer 1 1 #'(lambda ()
-                                  (if (> (elfeed-queue-count-total) 0)
-                                      (message (format "elfeed: %d jobs pending.." (elfeed-queue-count-total)))
-                                    (cancel-timer elfeed-dashboard--elfeed-update-timer)
-                                    (setq elfeed-dashboard--elfeed-update-timer nil)
-                                    (elfeed-dashboard-update-links)
-                                    (message "elfeed: Updated!")))))))
+          (run-with-timer 1 1 (lambda ()
+                                (if (> (elfeed-queue-count-total) 0)
+                                    (message "elfeed: %d jobs pending.." (elfeed-queue-count-total))
+                                  (cancel-timer elfeed-dashboard--elfeed-update-timer)
+                                  (setq elfeed-dashboard--elfeed-update-timer nil)
+                                  (elfeed-dashboard-update-links)
+                                  (message "elfeed: Updated!")))))))
 
 (defun elfeed-dashboard-parse-keymap ()
   "Install key binding defined as KEYMAP:VALUE.
@@ -151,4 +153,3 @@ trimmed and the last digit will be replace with +"
 
 (provide 'elfeed-dashboard)
 ;;; elfeed-dashboard.el ends here
-
