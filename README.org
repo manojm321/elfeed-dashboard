@@ -12,7 +12,14 @@
       :config (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org"))
   #+end_src
 
-  M-x elfeed-dashboard should bring up the UI.
+* Usage
+
+  1. M-x elfeed-dashboard will bring up the UI
+  2. "E" will let you edit in org-mode
+  3. "U" will fetch new feeds. If elfeed-org is installed then it will call
+     (elfeed-org) before fetching.
+  4. Add new key maps in configuration section and call M-x
+     elfeed-dashboard-mode to install.
 
 * License
 
