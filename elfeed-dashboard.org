@@ -18,7 +18,7 @@
   :VISIBILITY: hideall
   :END:
 
-  Call [[elisp:elfeed-dashboard-mode][elfeed-dashboard-mode]] to activate and deactivate dashboard
+  Press "E" to edit and M-x elfeed-dashboard-mode to go back
 
   #+STARTUP: showall showstars indent
   #+KEYMAP: u | elfeed-dashboard-query "+unread"
