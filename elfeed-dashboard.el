@@ -76,8 +76,8 @@
                                       (message (format "elfeed: %d jobs pending.." (elfeed-queue-count-total)))
                                     (cancel-timer elfeed-dashboard--elfeed-update-timer)
                                     (setq elfeed-dashboard--elfeed-update-timer nil)
-                                    (message "elfeed: Updated!"))))))
-  (elfeed-dashboard-update-links))
+                                    (elfeed-dashboard-update-links)
+                                    (message "elfeed: Updated!")))))))
 
 (defun elfeed-dashboard-parse-keymap ()
   "Install key binding defined as KEYMAP:VALUE.
@@ -100,8 +100,7 @@ to group keymaps at the same place."
                (call  (string-trim (nth 1 (split-string value "|")))))
           (define-key elfeed-dashboard-mode-map (kbd key)
             (eval (car (read-from-string
-                        (format "(lambda () (interactive) (%s))" call)))))
-          )))))
+                        (format "(lambda () (interactive) (%s))" call))))))))))
 
 (defun elfeed-dashboard-query-count (query)
   "Return the number of feeds returned by the QUERY."
