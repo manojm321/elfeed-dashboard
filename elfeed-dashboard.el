@@ -65,7 +65,7 @@
 
 (defun elfeed-dashboard-update ()
   "Fetch new feeds, Optionally try reading elfeed-org configuration."
-  (if (featurep 'elfeed-org)
+  (if (symbolp 'elfeed-org)
     (elfeed-org))
   (unless elfeed-dashboard--elfeed-update-timer
     (elfeed-update)

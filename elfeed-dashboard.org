@@ -13,7 +13,7 @@
   [n] News
   [v] Video
 
- Configuration
+* Configuration
   :PROPERTIES:
   :VISIBILITY: hideall
   :END:
@@ -26,7 +26,7 @@
   #+KEYMAP: b | elfeed-dashboard-query "+unread +blogs"
   #+KEYMAP: m | elfeed-dashboard-query "+unread +monitoring"
   #+KEYMAP: v | elfeed-dashboard-query "+unread +video"
-  #+KEYMAP: n | elfeed-dashboard-query "+unread +news -video"
+  #+KEYMAP: n | elfeed-dashboard-query "+unread +news"
   #+KEYMAP: s | elfeed
   #+KEYMAP: U | elfeed-dashboard-update
   #+KEYMAP: E | elfeed-dashboard-edit

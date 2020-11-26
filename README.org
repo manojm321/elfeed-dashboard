@@ -1,15 +1,19 @@
-*  elfeed-dashboard
+* elfeed-dashboard
   A frontend for elfeed, similar to mu4e landing page. The UI can be customized with org mode.
 
   #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
 
 * Installation
-  - Clone the repo and load elfeed-dashboard.el
-  - open elfeed-dashboard.org
-  - M-x elfeed-dashboard-mode
+  Clone this repo, ex: if cloning under ~/.emacs.d/lisp/. Following config
+  should work.
+  #+begin_src emacs-lisp
+    (use-package elfeed-dashboard
+      :load-path "~/.emacs.d/lisp/elfeed-dashboard/"
+      :config (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org"))
+  #+end_src
 
-  Now you should have a working dashboard. Call M-x elfeed-dashboard-mode again
-  and edit the dashboard to your heart's content.
+  M-x elfeed-dashboard should bring up the UI.
+
 * License
 
   [[file:LICENSE][GNU GPLv3.0]]
