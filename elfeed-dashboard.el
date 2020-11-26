@@ -27,7 +27,7 @@
 ;;; Code:
 (require 'elfeed-search)
 (require 'org-element)
-(require 'subr-x)
+(eval-when-compile (require 'subr-x))
 
 (defvar elfeed-dashboard--elfeed-update-timer nil)
 
