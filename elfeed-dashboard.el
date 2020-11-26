@@ -3,7 +3,10 @@
 ;; Copyright (C) 2020  Manoj Kumar Manikchand
 
 ;; Author: Manoj Kumar Manikchand <manojm321@protonmail.com>
+;; URL: https://github.com/Manoj321/elfeed-dashboard
 ;; Keywords: convenience
+;; Package-Requires: ((emacs "25.1")(elfeed "3.3.0"))
+;; Version: 0.0.0
 
 ;; This file is not part of GNU Emacs.
 
