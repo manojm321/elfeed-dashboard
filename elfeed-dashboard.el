@@ -33,6 +33,7 @@
 (eval-when-compile (require 'subr-x))
 
 (defvar elfeed-dashboard--elfeed-update-timer nil)
+(defvar elfeed-dashboard--buf nil)
 
 (defvar elfeed-dashboard-mode-map (make-sparse-keymap)
   "Keymap for `elfeed-dashboard-mode'.")
@@ -53,7 +54,8 @@
 (defun elfeed-dashboard ()
   "Main function."
   (interactive)
-  (with-current-buffer (find-file elfeed-dashboard-file)
+  (setq elfeed-dashboard--buf (find-file elfeed-dashboard-file))
+  (with-current-buffer elfeed-dashboard--buf
     (elfeed-dashboard-mode)
     (elfeed-dashboard-update-links)))
 
@@ -131,25 +133,24 @@ trimmed and the last digit will be replace with +"
          (size  (- end beg)))
     (if (> size 0)
         (let* ((count (elfeed-dashboard-query-count query))
-               (output (format (format "%%%dd" size) count)))
-          (with-current-buffer (find-file elfeed-dashboard-file)
-            (let ((modified (buffer-modified-p))
-                  (inhibit-read-only t))
-              (save-excursion
-                (delete-region beg end)
-                (goto-char beg)
-                (insert (if (<= (length output) size)
-                            output
-                          (concat (substring output 0 (- size 1)) "+"))))
-              (set-buffer-modified-p modified)))))))
+               (output (format (format "%%%dd" size) count))
+               (modified (buffer-modified-p))
+               (inhibit-read-only t))
+          (save-excursion
+            (delete-region beg end)
+            (goto-char beg)
+            (insert (if (<= (length output) size)
+                        output
+                      (concat (substring output 0 (- size 1)) "+"))))
+          (set-buffer-modified-p modified)))))
 
-(defun elfeed-dashboard-update-links ()
+(defun elfeed-dashboard-update-links (&rest _)
   "Update content of all links."
-  (org-element-map (org-element-parse-buffer) 'link
-    (lambda (link)
-      (when (string= (org-element-property :type link) "elfeed")
-        (elfeed-dashboard-update-link link)
-        (redisplay t)))))
+  (with-current-buffer elfeed-dashboard--buf
+    (org-element-map (org-element-parse-buffer) 'link
+      (lambda (link)
+        (when (string= (org-element-property :type link) "elfeed")
+          (elfeed-dashboard-update-link link))))))
 
 (provide 'elfeed-dashboard)
 ;;; elfeed-dashboard.el ends here
