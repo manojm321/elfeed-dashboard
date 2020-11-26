@@ -1,8 +1,10 @@
 * Basics
 
- [U] Update
+ [U] Update Elfeed
  [s] Search
  [E] Edit
+ [g] Refresh counts
+ [q] Kill dashboard
 
 * Bookmarks
 
@@ -28,6 +30,7 @@
   #+KEYMAP: v | elfeed-dashboard-query "+unread +video"
   #+KEYMAP: n | elfeed-dashboard-query "+unread +news"
   #+KEYMAP: s | elfeed
+  #+KEYMAP: g | elfeed-dashboard-update-links
   #+KEYMAP: U | elfeed-dashboard-update
   #+KEYMAP: E | elfeed-dashboard-edit
   #+KEYMAP: q | kill-current-buffer
