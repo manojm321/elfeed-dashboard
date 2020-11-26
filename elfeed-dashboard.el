@@ -72,7 +72,7 @@
   (goto-char (point-min)))
 
 (defun elfeed-dashboard-update ()
-  "Fetch new feeds, Optionally try reading elfeed-org configuration."
+  "Fetch new feeds, Optionally try reading `elfeed-org' configuration."
   (if (fboundp 'elfeed-org)
       (elfeed-org))
   (unless elfeed-dashboard--elfeed-update-timer
