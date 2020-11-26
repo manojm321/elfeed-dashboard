@@ -1,6 +1,5 @@
 * elfeed-dashboard
   A frontend for elfeed, similar to mu4e landing page. The UI can be customized with org mode.
-
   #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
 
 * Installation

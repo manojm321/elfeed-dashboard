@@ -49,7 +49,8 @@
   "Main function."
   (interactive)
   (with-current-buffer (find-file elfeed-dashboard-file)
-    (elfeed-dashboard-mode)))
+    (elfeed-dashboard-mode)
+    (elfeed-dashboard-update-links)))
 
 (defun elfeed-dashboard-edit ()
   "Edit dashboard."
@@ -75,7 +76,8 @@
                                       (message (format "elfeed: %d jobs pending.." (elfeed-queue-count-total)))
                                     (cancel-timer elfeed-dashboard--elfeed-update-timer)
                                     (setq elfeed-dashboard--elfeed-update-timer nil)
-                                    (message "elfeed: Updated!")))))))
+                                    (message "elfeed: Updated!"))))))
+  (elfeed-dashboard-update-links))
 
 (defun elfeed-dashboard-parse-keymap ()
   "Install key binding defined as KEYMAP:VALUE.
@@ -101,5 +103,50 @@ to group keymaps at the same place."
                         (format "(lambda () (interactive) (%s))" call)))))
           )))))
 
+(defun elfeed-dashboard-query-count (query)
+  "Return the number of feeds returned by the QUERY."
+  (let* ((count 0)
+         (filter (elfeed-search-parse-filter query))
+         (func (byte-compile (elfeed-search-compile-filter filter))))
+    (with-elfeed-db-visit (entry feed)
+      (when (funcall func entry feed count)
+        (setf count (1+ count))))
+    count))
+
+(defun elfeed-dashboard-update-link (link)
+  "Update LINK of the format elfeed:query description with count.
+
+Ex: [[elfeed:flag:unread +emacs][---]].  If the descriptions
+string(---) doesn't have enough space then the count will be
+trimmed and the last digit will be replace with +"
+
+  (let* ((path  (org-element-property :path link))
+         (query (string-trim path))
+         (beg   (org-element-property :contents-begin link))
+         (end   (org-element-property :contents-end link))
+         (size  (- end beg)))
+    (if (> size 0)
+        (let* ((count (elfeed-dashboard-query-count query))
+               (output (format (format "%%%dd" size) count)))
+          (with-current-buffer (find-file elfeed-dashboard-file)
+            (let ((modified (buffer-modified-p))
+                  (inhibit-read-only t))
+              (save-excursion
+                (delete-region beg end)
+                (goto-char beg)
+                (insert (if (<= (length output) size)
+                            output
+                          (concat (substring output 0 (- size 1)) "+"))))
+              (set-buffer-modified-p modified)))))))
+
+(defun elfeed-dashboard-update-links ()
+  "Update content of all links."
+  (org-element-map (org-element-parse-buffer) 'link
+    (lambda (link)
+      (when (string= (org-element-property :type link) "elfeed")
+        (elfeed-dashboard-update-link link)
+        (redisplay t)))))
+
 (provide 'elfeed-dashboard)
 ;;; elfeed-dashboard.el ends here
+

@@ -1,17 +1,17 @@
 * Basics
 
-  [U] Update
-  [s] Search
-  [E] Edit
+ [U] Update
+ [s] Search
+ [E] Edit
 
 * Bookmarks
 
-  [u] Unread
-  [e] Emacs
-  [b] Blogs
-  [m] Monitoring
-  [n] News
-  [v] Video
+ [u] Unread      ([[elfeed:+unread][   688]]/[[elfeed:][  7882]])
+ [e] Emacs       ([[elfeed:+unread +emacs][     1]]/[[elfeed:+emacs][  3634]])
+ [b] Blogs       ([[elfeed:+unread +blog][   506]]/[[elfeed:+blog][------]])
+ [m] Monitoring  ([[elfeed:+unread +monitoring][     0]]/[[elfeed:+monitoring][------]])
+ [n] News        ([[elfeed:+unread +news][    70]]/[[elfeed:+news][------]])
+ [v] Video       ([[elfeed:+unread +video][    10]]/[[elfeed:+video][------]])
 
 * Configuration
   :PROPERTIES:
