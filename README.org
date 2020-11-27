@@ -3,7 +3,7 @@
   #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
 
 * Installation
-** With [[https:github.com/raxod502/straight.el][straight.el]]
+** With [[https://github.com/raxod502/straight.el][straight.el]]
 #+begin_src emacs-lisp
 (straight-use-package '(elfeed-dashboard :type git :host github :repo "Manoj321/elfeed-dashboard"))
 #+end_src
