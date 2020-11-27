@@ -3,6 +3,12 @@
   #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
 
 * Installation
+** With [[https:github.com/raxod502/straight.el][straight.el]]
+#+begin_src emacs-lisp
+(straight-use-package '(elfeed-dashboard :type git :host github :repo "Manoj321/elfeed-dashboard"))
+#+end_src
+
+** Direct
   Clone this repo, ex: if cloning under ~/.emacs.d/lisp/. Following config
   should work.
   #+begin_src emacs-lisp
@@ -30,4 +36,3 @@
 * Credits
 
   Much thanks to [[https://github.com/rougier/mu4e-dashboard][mu4e-dashboard]] for inspiring me!
-
