@@ -1,4 +1,4 @@
-;;; elfeed-dashboard.el --- A frontend for elfeed     -*- lexical-binding: t; -*-
+;;; elfeed-dashboard.el --- An extensible frontend for elfeed using org-mode  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Manoj Kumar Manikchand
 
