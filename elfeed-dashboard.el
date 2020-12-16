@@ -73,6 +73,7 @@
 
 (defun elfeed-dashboard-update ()
   "Fetch new feeds, Optionally try reading `elfeed-org' configuration."
+  (interactive)
   (if (fboundp 'elfeed-org)
       (elfeed-org))
   (unless elfeed-dashboard--elfeed-update-timer
@@ -146,6 +147,7 @@ trimmed and the last digit will be replace with +"
 
 (defun elfeed-dashboard-update-links (&rest _)
   "Update content of all links."
+  (interactive)
   (with-current-buffer elfeed-dashboard--buf
     (org-element-map (org-element-parse-buffer) 'link
       (lambda (link)
