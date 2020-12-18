@@ -11,25 +11,32 @@
 #+end_src
 
 ** With use-package
-   #+begin_src emacs-lisp
-    (use-package elfeed-dashboard
-      :ensure t
-      :config (progn
-                (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org")
-                 ;; update feed counts on elfeed-quit
-                (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links)))
+   Save sample dashboard to a file
+   #+begin_src bash
+   curl https://raw.githubusercontent.com/Manoj321/elfeed-dashboard/main/elfeed-dashboard.org -o ~/elfeed-dashboard.org
    #+end_src
+
+   Install the package
+   #+begin_src emacs-lisp
+     (use-package elfeed-dashboard
+       :ensure t
+       :config (progn
+                 (setq elfeed-dashboard-file "~/elfeed-dashboard.org")
+                  ;; update feed counts on elfeed-quit
+                 (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links)))
+   #+end_src
+
 ** Direct
-  Clone this repo, ex: if cloning under ~/.emacs.d/lisp/. Following config
-  should work.
-  #+begin_src emacs-lisp
-    (use-package elfeed-dashboard
-      :load-path "~/.emacs.d/lisp/elfeed-dashboard/"
-      :config (progn
-                (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org")
-                 ;; update feed counts on elfeed-quit
-                (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links)))
-  #+end_src
+   Clone this repo, ex: if cloning under ~/.emacs.d/lisp/. Following config
+   should work.
+   #+begin_src emacs-lisp
+     (use-package elfeed-dashboard
+       :load-path "~/.emacs.d/lisp/elfeed-dashboard/"
+       :config (progn
+                 (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org")
+                  ;; update feed counts on elfeed-quit
+                 (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links)))
+   #+end_src
 
 * Usage
 
