@@ -1,5 +1,6 @@
 * elfeed-dashboard
   [[https://melpa.org/#/elfeed-dashboard][file:https://melpa.org/packages/elfeed-dashboard-badge.svg]] [[http://www.gnu.org/licenses/gpl-3.0.txt][file:https://img.shields.io/badge/license-GPL_v3-green.svg]]
+
   A frontend for elfeed, similar to mu4e landing page. The UI can be customized with org mode.
   #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
 
