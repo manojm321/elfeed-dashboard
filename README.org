@@ -1,4 +1,5 @@
 * elfeed-dashboard
+  [[https://melpa.org/#/elfeed-dashboard][file:https://melpa.org/packages/elfeed-dashboard-badge.svg]] [[http://www.gnu.org/licenses/gpl-3.0.txt][file:https://img.shields.io/badge/license-GPL_v3-green.svg]]
   A frontend for elfeed, similar to mu4e landing page. The UI can be customized with org mode.
   #+html: <p align="center"><img src="elfeed-dashboard.png" /></p>
 
@@ -8,6 +9,15 @@
 (straight-use-package '(elfeed-dashboard :type git :host github :repo "Manoj321/elfeed-dashboard"))
 #+end_src
 
+** With use-package
+   #+begin_src emacs-lisp
+    (use-package elfeed-dashboard
+      :ensure t
+      :config (progn
+                (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org")
+                 ;; update feed counts on elfeed-quit
+                (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links)))
+   #+end_src
 ** Direct
   Clone this repo, ex: if cloning under ~/.emacs.d/lisp/. Following config
   should work.
@@ -16,7 +26,7 @@
       :load-path "~/.emacs.d/lisp/elfeed-dashboard/"
       :config (progn
                 (setq elfeed-dashboard-file "~/.emacs.d/lisp/elfeed-dashboard/elfeed-dashboard.org")
-                 ;; to update feed counts automatically
+                 ;; update feed counts on elfeed-quit
                 (advice-add 'elfeed-search-quit-window :after #'elfeed-dashboard-update-links)))
   #+end_src
 
