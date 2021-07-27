@@ -8,12 +8,13 @@
 
 * Bookmarks
 
- [u] Unread      ([[elfeed:+unread][   688]]/[[elfeed:][  7882]])
- [e] Emacs       ([[elfeed:+unread +emacs][     1]]/[[elfeed:+emacs][  3634]])
- [b] Blogs       ([[elfeed:+unread +blog][   506]]/[[elfeed:+blog][------]])
- [m] Monitoring  ([[elfeed:+unread +monitoring][     0]]/[[elfeed:+monitoring][------]])
- [n] News        ([[elfeed:+unread +news][    70]]/[[elfeed:+news][------]])
- [v] Video       ([[elfeed:+unread +video][    10]]/[[elfeed:+video][------]])
+ [u] Unread      ([[elfeed:+unread][  1060]]/[[elfeed:][ 13337]])
+ [b] Blogs       ([[elfeed:+unread +blog][   151]]/[[elfeed:+blog][  2820]])
+    - [e] Emacs          ([[elfeed:+unread +emacs][   231]]/[[elfeed:+emacs][  5837]])
+    - [n] Null Program   ([[elfeed:+unread +nullprogram][     0]]/[[elfeed:+nullprogram][     0]])
+ [m] Monitoring  ([[elfeed:+unread +monitoring][     0]]/[[elfeed:+monitoring][    78]])
+ [n] News        ([[elfeed:+unread +news][    31]]/[[elfeed:+news][  4959]])
+ [v] Video       ([[elfeed:+unread +video][     0]]/[[elfeed:+video][  1245]])
 
 * Configuration
   :PROPERTIES:
@@ -24,8 +25,8 @@
 
   #+STARTUP: showall showstars indent
   #+KEYMAP: u | elfeed-dashboard-query "+unread"
-  #+KEYMAP: e | elfeed-dashboard-query "+unread +emacs"
-  #+KEYMAP: b | elfeed-dashboard-query "+unread +blogs"
+  #+KEYMAP: be | elfeed-dashboard-query "+unread +blogs +emacs"
+  #+KEYMAP: bn | elfeed-dashboard-query "+unread +blogs +nullprogram"
   #+KEYMAP: m | elfeed-dashboard-query "+unread +monitoring"
   #+KEYMAP: v | elfeed-dashboard-query "+unread +video"
   #+KEYMAP: n | elfeed-dashboard-query "+unread +news"
