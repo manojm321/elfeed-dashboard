@@ -1,3 +1,7 @@
+#+begin_quote
+Note: I've moved a self hosted solution for my RSS needs [[https://miniflux.app/][Miniflux]]. I no longer use elfeed. I'll be happy to merge any PRs, but don't expect any bug fixes/newfeatures from me.
+#+end_quote
+
 * elfeed-dashboard
   [[https://melpa.org/#/elfeed-dashboard][file:https://melpa.org/packages/elfeed-dashboard-badge.svg]] [[http://www.gnu.org/licenses/gpl-3.0.txt][file:https://img.shields.io/badge/license-GPL_v3-green.svg]]
 
