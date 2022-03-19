@@ -1,5 +1,5 @@
 #+begin_quote
-Note: I've moved a self hosted solution for my RSS needs [[https://miniflux.app/][Miniflux]]. I no longer use elfeed. I'll be happy to merge any PRs, but don't expect any bug fixes/newfeatures from me.
+Note: I've moved to a self hosted solution for my RSS needs [[https://miniflux.app/][Miniflux]]. I no longer use elfeed. I'll be happy to merge any PRs, but don't expect any bug fixes/newfeatures from me.
 #+end_quote
 
 * elfeed-dashboard
